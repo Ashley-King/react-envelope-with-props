@@ -1,7 +1,7 @@
 .envelope{
   width: 700px;
   height: 350px;
-  border: 1px solid #efefef;
+  border: 2px solid #efefef;
   margin: 50px auto;
 
 }
@@ -9,7 +9,7 @@
 .stamp{
   width: 75px;
   height: 75px;
-  background-color: lavenderblush;
+  background-color: rgb(116, 30, 59);
   position: relative;
   top:15px;
   left:615px;
@@ -23,7 +23,9 @@
   /* outline: 1px solid red; */
 }
 
-.return-address-container .name{
+.return-address-container .name,
+.sender-address-container .name
+{
   text-transform: uppercase;
   color: blue;
   font-size: 14px;
@@ -33,4 +35,9 @@
 .return-address-container .city-state
 {
   font-size: 12px;;
+}
+.sender-address-container{
+  position: relative;
+  left: 295px;
+  top: 50px;
 }
