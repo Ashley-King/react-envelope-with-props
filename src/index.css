@@ -1,14 +1,36 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.envelope{
+  width: 700px;
+  height: 350px;
+  border: 1px solid #efefef;
+  margin: 50px auto;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.stamp{
+  width: 75px;
+  height: 75px;
+  background-color: lavenderblush;
+  position: relative;
+  top:15px;
+  left:615px;
+}
+
+.return-address-container{
+  position:relative;
+  width: 150px;
+  top:-55px;
+  left: 13px;
+  /* outline: 1px solid red; */
+}
+
+.return-address-container .name{
+  text-transform: uppercase;
+  color: blue;
+  font-size: 14px;
+}
+
+.return-address-container .address, 
+.return-address-container .city-state
+{
+  font-size: 12px;;
 }
