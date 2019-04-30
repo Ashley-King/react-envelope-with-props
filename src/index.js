@@ -1,57 +1,80 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom';
 import './index.css';
 
-function Envelope(){
+
+function Envelope({toPerson, fromPerson}){
     return(
         <div className="envelope">
          <Stamp/>
-        <ReturnAddress/>
-        <SenderAddress/>
+         <div className="return-address-container">
+         <Address name={fromPerson.name}
+                  address={fromPerson.address}
+                  city={fromPerson.city}
+                  state={fromPerson.state}
+                  zip={fromPerson.zip}/>
+         </div>
+         <div className="sender-address-container">
+         <Address name={toPerson.name}
+                  address={toPerson.address}
+                  city={toPerson.city}
+                  state={toPerson.state}
+                  zip={toPerson.zip}/>
+         </div>
     </div>
     )
     
 }
+Envelope.propTypes = {
+    toPerson: PropTypes.object.isRequired,
+    fromPerson: PropTypes.object.isRequired
+};
 
-function ReturnAddress(){
+function Address({name, address, city, state, zip}){
     return(
-        <div className="return-address-container">
+        <div className="address-container">
              <div className="name">
-            Ashley King
+            {name}
         </div>    
         <div className="address">
-            16 Ohana Lane
+            {address}
         </div>
         <div className="city-state">
-            Kauai, HI 96714
+            {city}, {state} {zip}
         </div>
         </div>
        
     )
 }
 
-function SenderAddress(){
-    return(
-        <div className="sender-address-container">
-            <div className="name">
-                To Person
-            </div>
-            <div className="address">
-                70 To Address St.
-            </div>
-            <div className="city-state">
-                Kauai, HI, 96715
-            </div>
-        </div>
-    )
+Address.propTypes = {
+    name: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    state: PropTypes.string.isRequired,
+    zip: PropTypes.string.isRequired
 }
 
 const Stamp = () => (
     <div className="stamp"></div>
 )
     
+const toPerson = {
+    name: 'Ashley King',
+    address: '70 Ohana Lane',
+    city: 'Kauai',
+    state: 'HI',
+    zip: '96714'
+}
 
+const fromPerson = {
+    name: 'Someone Else',
+    address: '100 Hula Ave',
+    city: 'Kauai',
+    state: 'HI',
+    zip: '96714'
+}
 
-
-ReactDOM.render(<Envelope />, document.getElementById('root'));
+ReactDOM.render(<Envelope toPerson={toPerson} fromPerson={fromPerson} />, document.getElementById('root'));
 
